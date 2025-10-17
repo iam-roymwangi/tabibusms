@@ -12,6 +12,10 @@ Route::get('/about', [HomeController::class, 'loadAboutPage'])->name('about');
 
 Route::get('/contact', [HomeController::class, 'loadContactPage'])->name('contact');
 
+Route::get('/docs', [HomeController::class, 'loadDocumentationPage'])->name('documentation');
+
+Route::get('/docs/details', [HomeController::class, 'loadDocumentationDetailsPage'])->name('documentation.details');
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

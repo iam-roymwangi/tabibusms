@@ -26,4 +26,14 @@ class HomeController extends Controller
     {
         return Inertia::render('Contact');
     }
+
+    public function loadDocumentationPage()
+    {
+        return Inertia::render('Documentation');
+    }
+
+    public function loadDocumentationDetailsPage()
+    {
+        return Inertia::render('DocumentationDetails');
+    }
 }

@@ -437,7 +437,7 @@ const submitForm = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Reset form
-    Object.keys(form).forEach((key) => {
+    (Object.keys(form) as Array<keyof typeof form>).forEach((key) => {
         form[key] = '';
     });
 

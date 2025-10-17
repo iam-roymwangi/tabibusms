@@ -5,7 +5,9 @@
       <div class="container mx-auto px-4 flex justify-between items-center">
         <div class="flex items-center">
           <div class="h-10 md:h-16 flex items-center">
-            <div class="text-2xl font-bold text-primary">Tabibu SMS</div>
+            <Link href="/">
+              <img src="/images/tabibusms-logo.png" alt="Tabibu SMS Logo" class="h-8 md:h-12 w-auto rounded-2xl">
+            </Link>
           </div>
         </div>
         
@@ -14,7 +16,7 @@
           <Link href="/products" class="font-medium text-gray-800 hover:text-primary transition-colors">Products</Link>
           <Link href="/contact" class="font-medium text-gray-800 hover:text-primary transition-colors">Contact</Link>
           <Link href="/about" class="font-medium text-gray-800 hover:text-primary transition-colors">About</Link>
-          <Link href="#docs" class="font-medium text-gray-800 hover:text-primary transition-colors">API Docs</Link>
+          <Link href="/docs" class="font-medium text-gray-800 hover:text-primary transition-colors">API Docs</Link>
           <Link href="#docs" class="font-medium text-gray-800 hover:text-primary transition-colors">Pricing</Link>
         </nav>
         
@@ -31,6 +33,44 @@
         </button>
       </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <transition
+      enter-active-class="transition ease-out duration-200"
+      enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition ease-in duration-150"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-4"
+    >
+      <div v-if="showMobileMenu" class="fixed inset-0 bg-white z-40 flex flex-col py-6 px-4 shadow-lg md:hidden">
+        <div class="flex justify-between items-center mb-8">
+          <Link href="/" @click="closeMobileMenu">
+            <img src="/images/tabibusms-logo.png" alt="Tabibu SMS Logo" class="h-8 md:h-12 w-auto">
+          </Link>
+          <button @click="toggleMobileMenu" class="text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="flex flex-col space-y-4 mb-8">
+          <Link href="/" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">Home</Link>
+          <Link href="/products" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">Products</Link>
+          <Link href="/contact" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">Contact</Link>
+          <Link href="/about" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">About</Link>
+          <Link href="/docs" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">API Docs</Link>
+          <Link href="#docs" class="font-medium text-gray-800 hover:text-primary transition-colors text-lg" @click="closeMobileMenu">Pricing</Link>
+        </nav>
+
+        <div class="flex flex-col space-y-4">
+          <a href="#portal" class="px-4 py-2 text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors text-lg text-center" @click="closeMobileMenu">
+            Login
+          </a>
+        </div>
+      </div>
+    </transition>
 
     <div>
       <slot />
@@ -233,6 +273,7 @@ import { Link } from '@inertiajs/vue3'
 // Reactive data
 const isScrolled = ref(false)
 const showPricingModal = ref(false)
+const showMobileMenu = ref(false) // New reactive variable for mobile menu
 const pricingForm = ref({
   name: '',
   email: '',
@@ -249,8 +290,11 @@ const handleScroll = () => {
 }
 
 const toggleMobileMenu = () => {
-  // Mobile menu toggle logic
-  console.log('Mobile menu toggled')
+  showMobileMenu.value = !showMobileMenu.value // Toggle mobile menu visibility
+}
+
+const closeMobileMenu = () => {
+  showMobileMenu.value = false; // Close mobile menu
 }
 
 const submitPricingRequest = () => {

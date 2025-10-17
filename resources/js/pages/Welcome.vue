@@ -10,10 +10,11 @@
         </div>
         
         <nav class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
-          <a href="#pricing" class="font-medium text-gray-800 hover:text-primary transition-colors">Pricing</a>
-          <a href="#features" class="font-medium text-gray-800 hover:text-primary transition-colors">Features</a>
-          <a href="#docs" class="font-medium text-gray-800 hover:text-primary transition-colors">API Docs</a>
+          <a href="/home" class="font-medium text-[#fff] hover:text-primary transition-colors">Home</a>
+          <a href="/products" class="font-medium text-[#fff] hover:text-primary transition-colors">Products</a>
+          <a href="/contact" class="font-medium text-[#fff] hover:text-primary transition-colors">Contact</a>
+          <a href="/about" class="font-medium text-[#fff] hover:text-primary transition-colors">About Us</a>
+          <a href="/docs" class="font-medium text-[#fff] hover:text-primary transition-colors">API Docs</a>
         </nav>
         
         <div class="hidden md:flex items-center space-x-4">
@@ -32,13 +33,18 @@
 
     <main>
        <!-- Hero Section  -->
-      <section id="home" class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-blue-100">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <section 
+        id="home" 
+        class="relative pt-32 pb-20 bg-cover bg-center" 
+        style="background-image: url('/images/tabibusms-hero.png');"
+      >
+        <div class="absolute inset-0 bg-blue-900 opacity-70"></div> <!-- Overlay for readability -->
+        <div class="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-12 items-center text-white">
           <div class="space-y-6">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Business Communication <br> <span class="text-primary">Made Simple</span>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+              Business Communication <br> <span class="text-primary-light">Made Simple</span>
             </h1>
-            <p class="text-lg text-gray-600">
+            <p class="text-lg text-blue-100">
               Empower your Business with reliable SMS, USSD, and Payment APIs. Built for Kenya's dynamic
               business landscape.
             </p>
@@ -49,14 +55,14 @@
               >
                 Get SMS Pricing
               </button>
-              <a href="#docs" class="px-6 py-3 border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
+              <a href="#docs" class="px-6 py-3 border border-primary text-primary-light font-medium rounded-lg hover:bg-primary hover:text-white transition-colors">
                 View API Docs
               </a>
             </div>
           </div>
           
           <div class="relative">
-            <div class="relative z-10 bg-white rounded-xl shadow-lg p-6">
+            <div class="relative z-10 bg-white rounded-xl shadow-lg p-6 text-gray-900">
               <div class="space-y-4">
                 <div class="flex items-center space-x-3">
                   <div class="w-3 h-3 bg-green-500 rounded-full"></div>
